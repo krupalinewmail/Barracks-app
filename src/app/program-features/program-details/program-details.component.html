@@ -1,0 +1,38 @@
+<!-- <div class="mat-direction" fxLayout="row wrap" *ngIf="programDetail" fxLayout.xs="column"  fxLayoutAlign="space-around center" fxLayoutGap="25px">
+
+    <mat-card class ="example-card" fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" >
+      
+      <mat-card-content>
+        <div fxLayout="row wrap" fxLayout.xs="column"  class="item-description">
+          <span class="card-text">{{programDetail.name}}</span>
+          <span *ngIf="programDetail.is_active" [ngClass]="{'program-status-active': programDetail.is_active,'program-status-inactive': !programDetail.is_active}">{{programDetail.is_active ? 'Active' : 'In Active' }}</span>
+          <span *ngIf="programDetail.source_zip_file" class="program-file">download file</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <app-scope-list [scopList]="programDetail.assets"></app-scope-list>
+  </div> -->
+<div style="background-color: 
+#476d7c;">
+  <div class="header">
+    <h2>{{programDetail.name}}</h2>
+  </div>
+
+  <div class="row">
+    <div class="leftcolumn">
+      <div class="card">
+        <app-scope-list [scopList]="programDetail.assets"></app-scope-list>
+      </div>
+    </div>
+    <div class="rightcolumn">
+      <div class="card">
+        <span *ngFor="let roe of programDetail.roe">
+          <ul>
+            <li>  {{roe.roe}} </li>
+          </ul>
+        </span>
+
+      </div>
+    </div>
+  </div>
+</div>

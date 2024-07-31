@@ -1,0 +1,49 @@
+
+	<div class="modal">
+
+		<form class="modal-content" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+			<div class="imgcontainer">
+                Register
+			</div>
+           <hr>
+			<div class="container">
+                <span class="info">Account Information</span>
+				<!-- <mat-form-field class="form-field">
+					<input
+					  matInput
+					  placeholder="pat@example.com"
+					  [formControl]="loginForm.controls.username"
+					  (blur)="updateErrorMessage()"
+					  required
+					/>
+					  <mat-error>{{errorMessage()}}</mat-error>
+				  </mat-form-field> -->
+
+                  <input type="text" placeholder="Enter Name"
+                  name="uname" [formControl]="loginForm.controls.name" required>
+              <span class="mat-error" *ngIf="submitted && loginForm.controls.name.errors?.required">Name is required.</span>
+
+				<input type="text" placeholder="Enter Username"
+					name="uname" [formControl]="loginForm.controls.username" required>
+				<span class="mat-error" *ngIf="submitted && loginForm.controls.username.errors?.required">username is required.</span>
+				<span class="mat-error" *ngIf="submitted && !loginForm.controls.username.errors?.required && loginForm.controls.username.errors?.email">Enter valid username.</span>
+                <br/>
+
+
+				<input type="password" placeholder="Enter Password" [formControl]="loginForm.controls.password"
+					name="psw" required>
+                <span class="mat-error" *ngIf="submitted && loginForm.controls.password.errors?.required"> Password is required.</span>
+                <span class="mat-error" *ngIf="submitted && !loginForm.controls.password.errors?.required && loginForm.controls.password.errors?.pattern">Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</span>
+                <input type="password" placeholder="Enter Confirm Password"  (input)="inputChange($event)" [formControl]="loginForm.controls.confirmPassword"
+					name="psw" required>
+                <span class="mat-error" *ngIf="submitted && loginForm.controls.confirmPassword.errors?.required">Confirm Password is required.</span>
+                <span class="mat-error" *ngIf="isPasswordMismatch">Password and confirm password is not matching.</span>
+				<div class="buttonlayout">
+                    <button type="submit" class="login">Register</button>
+                <button [routerLink]="['/user/login']" routerLinkActive="router-link-active"  class="cancelbtn">Cancel</button>
+                
+                </div>
+			</div>
+
+		</form>
+	</div>

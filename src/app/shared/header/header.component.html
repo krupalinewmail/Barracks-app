@@ -1,0 +1,12 @@
+<nav>
+    <a class="links logo" href="#"><img src="Group 18.svg" alt="LOGO"></a>
+    <div class="rightSection" > 
+       <a class="links" [routerLink]="['/program']" routerLinkActive="selected" >Home</a>
+       <a class="links" [routerLink]="['/contact-us']" routerLinkActive="selected">Contact Us</a>
+       <a class="links" routerLinkActive="selected" href="#">About Us</a>
+       <a class="links" routerLinkActive="selected" href="#">More Info</a>
+       <a class="links" [routerLink]="['user/login']" *ngIf="!isLoggedIn" routerLinkActive="selected">Login</a>
+       <a class="links" *ngIf="isLoggedIn" (click)="logOut()" routerLinkActive="selected">Logout</a>
+    </div>
+ </nav>
+

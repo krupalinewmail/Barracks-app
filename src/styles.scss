@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+// @import '@angular/material/prebuilt-themes/deeppurpule-amber.css';
+:root {
+    --color-border-common-primary: #0e2954;
+    --color-border-common-primary1: #1f6e8c;
+    --color-border-common-primary2: #2E8A99;
+    --color-border-common-primary3: #84A7A1;
+
+    --color-border-common-secondary: #0C134F;
+    --color-border-common-secondary1: #1D267D;
+    --color-border-common-secondary2: #5C469C;
+    --color-border-common-secondary3: #D4ADFC;
+
+    --color-border-common-tertiary: #0A4D68;
+    --color-border-common-tertiary1: #088395;
+    --color-border-common-tertiary2: #05BFDB;
+    --color-border-common-tertiary3: #00ffca;
+
+    --color-border-common-natured: #1d3e53;
+    --color-border-common-natured1: #254b62;
+    --color-border-common-natured2: #476d7c;
+    --color-border-common-natured3: #77abb7;
+}
+.mat-error{
+    color:red;
+    font-weight: 530;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/*set the Modal background*/
+.modal {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--color-border-common-natured);
+    padding-top: 60px;
+}
+
+/*style the model content box*/
+.modal-content {
+    background-color: var(--color-border-common-natured);
+    margin: 5% auto 15% auto;
+    border: 3px solid var(--color-border-common-natured3);
+    width: 40%;
+}
+
+input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}

@@ -1,0 +1,71 @@
+<div class="programme-div">
+    <form [formGroup]="addProgramForm" (ngSubmit)="onSubmit()">
+      <span class="title">Add Programme</span>
+      <input type="text" [formControl]="addProgramForm.controls.programmeName" placeholder="Enter Programme name"
+        name="uname" required>
+        <span class="mat-error" *ngIf="submitted && addProgramForm.controls.programmeName.errors?.required">Program name is required.</span>
+      <div formArrayName="roe">
+        <span class="sub-title">ROE</span>
+        <mat-icon class="add-asset" (click)="addROEToFormGroup()">add</mat-icon>
+        <div class="roe-block" *ngFor="let roeProp of addProgramForm.get('roe').controls; let i = index"
+          [formGroupName]="i">
+          <div >
+          <mat-icon class="add-asset asset-margin" (click)="removeROEFormGroup(i)">delete_outline</mat-icon>
+        </div>
+          <input type="text" class="roe-input" [formControl]="roeProp.controls.name" placeholder="Enter ROE name"
+            name="uname" required>
+            <span class="mat-error" *ngIf="submitted && roeProp.controls.name.errors?.required">ROE name is required.</span>
+          <input type="text" class="roe-input input-field" [formControl]="roeProp.controls.description"
+            placeholder="Enter Description" required>
+            <span class="mat-error" *ngIf="submitted && roeProp.controls.description.errors?.required">ROE Description is required.</span>
+        </div>
+      </div>
+      <br />
+      <hr />
+      <span class="sub-title">Assets</span>
+      <mat-icon class="add-asset" (click)="addAssetToFormGroup()">add</mat-icon>
+      <br />
+      <br/>
+      <hr />
+      <div formArrayName="assets">
+        <div *ngFor="let assetsProp of addProgramForm.get('assets').controls; let i = index" [formGroupName]="i">
+          <div class="asset-list">
+            <span class="asset-title">Asset {{i+1}}</span>
+            <mat-icon class="add-asset" (click)="removeStatusFormGroup(i)">delete_outline</mat-icon>
+          </div>
+          <div class="roe-block">
+            <input type="text" formControlName="scopeName" placeholder="Enter Asset name" name="uname" required>
+            <span class="mat-error" *ngIf="submitted && assetsProp.controls.scopeName.errors?.required">Scope name is required.</span>
+            <input type="text" placeholder="Enter Asset Type" formControlName="scopeType" name="uname" required>
+            <span class="mat-error" *ngIf="submitted && assetsProp.controls.scopeType.errors?.required">Asset type is required.</span>
+          </div>
+          <div class="scope-div">
+            <label class="scope-text">Scope</label>
+            <div class="scope-option">
+              <input type="radio" formControlName="scopeStatus" value="1">
+              <label> In Scope</label>
+            </div>
+            <div class="scope-option">
+              <input type="radio" formControlName="scopeStatus" value="0">
+              <label> Out Scope</label>
+            </div>
+          </div>
+          <div class="scope-div">
+            <label class="scope-text">Is Active</label>
+            <div class="scope-option">
+              <input type="checkbox" formControlName="isActive" value="1">
+              <label> Active</label>
+            </div>
+            <div class="scope-option">
+              <input type="checkbox" formControlName="isActive" value="0">
+              <label> In Active</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+      <button type="submit" class="login">Submit</button>
+      <button type="submit" class="login cancel">Cancel</button>
+    </div>
+    </form>
+  </div>

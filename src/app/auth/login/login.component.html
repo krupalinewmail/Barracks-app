@@ -1,0 +1,37 @@
+	<div class="modal">
+
+		<form class="modal-content" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+			<div class="imgcontainer">
+                Login
+			</div>
+           <hr>
+			<div class="container">
+                <span class="info">Account Information</span>
+				<!-- <mat-form-field class="form-field">
+					<input
+					  matInput
+					  placeholder="pat@example.com"
+					  [formControl]="loginForm.controls.username"
+					  (blur)="updateErrorMessage()"
+					  required
+					/>
+					  <mat-error>{{errorMessage()}}</mat-error>
+				  </mat-form-field> -->
+
+				<input type="text" placeholder="Enter Username"
+					name="uname" [formControl]="loginForm.controls.username" required>
+				<span class="mat-error" *ngIf="submitted && loginForm.controls.username.errors?.required">username is required.</span>
+				
+                <br/>
+				<input type="password" placeholder="Enter Password"
+					name="psw" [formControl]="loginForm.controls.password" required>
+					<span class="mat-error" *ngIf="submitted && loginForm.controls.password.errors?.required">Password is required.</span>
+				<button type="submit" class="login">Login to your account</button>
+				<a class="forgot-password" [routerLink]="['/user/forgot-password']" routerLinkActive="router-link-active" >Help! I have forgot my password</a>
+				<br/>
+				<a class="forgot-password" [routerLink]="['/user/register']" routerLinkActive="router-link-active" >New! Register here</a>
+			</div>
+
+		</form>
+	</div>
+
